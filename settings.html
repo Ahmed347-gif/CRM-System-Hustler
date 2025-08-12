@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Settings & Configuration - Customer & Sales Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>⚙️ CRM Settings & Configuration</h1>
+            <p>Customize Your System Preferences</p>
+        </header>
+
+        <!-- General Settings -->
+        <section class="general-settings">
+            <h2>General Settings</h2>
+            <div class="settings-grid">
+                <div class="setting-card">
+                    <h3>🏢 Company Information</h3>
+                    <div class="setting-form">
+                        <div class="form-group">
+                            <label for="companyName">Company Name:</label>
+                            <input type="text" id="companyName" placeholder="Enter company name">
+                        </div>
+                        <div class="form-group">
+                            <label for="companyAddress">Company Address:</label>
+                            <textarea id="companyAddress" placeholder="Enter company address" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="companyPhone">Company Phone:</label>
+                            <input type="tel" id="companyPhone" placeholder="Enter company phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="companyEmail">Company Email:</label>
+                            <input type="email" id="companyEmail" placeholder="Enter company email">
+                        </div>
+                        <button class="btn btn-primary" onclick="saveCompanyInfo()">Save Company Info</button>
+                    </div>
+                </div>
+
+                <div class="setting-card">
+                    <h3>🌍 Localization</h3>
+                    <div class="setting-form">
+                        <div class="form-group">
+                            <label for="language">Language:</label>
+                            <select id="language">
+                                <option value="en">English</option>
+                                <option value="es">Spanish</option>
+                                <option value="fr">French</option>
+                                <option value="de">German</option>
+                                <option value="pt">Portuguese</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="currency">Currency:</label>
+                            <select id="currency">
+                                <option value="USD">US Dollar ($)</option>
+                                <option value="EUR">Euro (€)</option>
+                                <option value="GBP">British Pound (£)</option>
+                                <option value="JPY">Japanese Yen (¥)</option>
+                                <option value="CAD">Canadian Dollar (C$)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="timezone">Timezone:</label>
+                            <select id="timezone">
+                                <option value="UTC">UTC</option>
+                                <option value="EST">Eastern Time</option>
+                                <option value="PST">Pacific Time</option>
+                                <option value="GMT">Greenwich Mean Time</option>
+                                <option value="CET">Central European Time</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" onclick="saveLocalization()">Save Localization</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Management Settings -->
+        <section class="customer-settings">
+            <h2>Customer Management Settings</h2>
+            <div class="settings-grid">
+                <div class="setting-card">
+                    <h3>👥 Customer Categories</h3>
+                    <div class="setting-form">
+                        <div class="category-list" id="categoryList">
+                            <!-- Categories will be populated here -->
+                        </div>
+                        <div class="add-category">
+                            <input type="text" id="newCategory" placeholder="New category name">
+                            <button class="btn btn-success" onclick="addCategory()">Add Category</button>
+                        </div>
+                        <button class="btn btn-primary" onclick="saveCategories()">Save Categories</button>
+                    </div>
+                </div>
+
+                <div class="setting-card">
+                    <h3>📋 Customer Fields</h3>
+                    <div class="setting-form">
+                        <div class="field-settings">
+                            <div class="field-item">
+                                <label>
+                                    <input type="checkbox" id="enableNotes" checked>
+                                    Enable Customer Notes
+                                </label>
+                            </div>
+                            <div class="field-item">
+                                <label>
+                                    <input type="checkbox" id="enableTags" checked>
+                                    Enable Customer Tags
+                                </label>
+                            </div>
+                            <div class="field-item">
+                                <label>
+                                    <input type="checkbox" id="enableBirthday">
+                                    Enable Birthday Field
+                                </label>
+                            </div>
+                            <div class="field-item">
+                                <label>
+                                    <input type="checkbox" id="enableSocialMedia">
+                                    Enable Social Media Links
+                                </label>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" onclick="saveFieldSettings()">Save Field Settings</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Preferences -->
+        <section class="system-preferences">
+            <h2>System Preferences</h2>
+            <div class="settings-grid">
+                <div class="setting-card">
+                    <h3>🔔 Notifications</h3>
+                    <div class="setting-form">
+                        <div class="notification-settings">
+                            <div class="notification-item">
+                                <label>
+                                    <input type="checkbox" id="emailNotifications" checked>
+                                    Email Notifications
+                                </label>
+                            </div>
+                            <div class="notification-item">
+                                <label>
+                                    <input type="checkbox" id="browserNotifications" checked>
+                                    Browser Notifications
+                                </label>
+                            </div>
+                            <div class="notification-item">
+                                <label>
+                                    <input type="checkbox" id="lowStockAlerts">
+                                    Low Stock Alerts
+                                </label>
+                            </div>
+                            <div class="notification-item">
+                                <label>
+                                    <input type="checkbox" id="customerBirthdayReminders">
+                                    Customer Birthday Reminders
+                                </label>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" onclick="saveNotificationSettings()">Save Notification Settings</button>
+                    </div>
+                </div>
+
+                <div class="setting-card">
+                    <h3>🔒 Security & Privacy</h3>
+                    <div class="setting-form">
+                        <div class="security-settings">
+                            <div class="form-group">
+                                <label for="sessionTimeout">Session Timeout (minutes):</label>
+                                <input type="number" id="sessionTimeout" min="5" max="480" value="30">
+                            </div>
+                            <div class="form-group">
+                                <label for="maxLoginAttempts">Max Login Attempts:</label>
+                                <input type="number" id="maxLoginAttempts" min="3" max="10" value="5">
+                            </div>
+                            <div class="security-item">
+                                <label>
+                                    <input type="checkbox" id="enableDataEncryption" checked>
+                                    Enable Data Encryption
+                                </label>
+                            </div>
+                            <div class="security-item">
+                                <label>
+                                    <input type="checkbox" id="enableAuditLog" checked>
+                                    Enable Audit Log
+                                </label>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" onclick="saveSecuritySettings()">Save Security Settings</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Management -->
+        <section class="data-management">
+            <h2>Data Management</h2>
+            <div class="settings-grid">
+                <div class="setting-card">
+                    <h3>💾 Backup & Restore</h3>
+                    <div class="setting-form">
+                        <div class="backup-settings">
+                            <div class="form-group">
+                                <label for="autoBackup">Auto Backup:</label>
+                                <select id="autoBackup">
+                                    <option value="daily">Daily</option>
+                                    <option value="weekly">Weekly</option>
+                                    <option value="monthly">Monthly</option>
+                                    <option value="never">Never</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="backupRetention">Backup Retention (days):</label>
+                                <input type="number" id="backupRetention" min="1" max="365" value="30">
+                            </div>
+                            <div class="backup-actions">
+                                <button class="btn btn-success" onclick="createBackup()">Create Backup Now</button>
+                                <button class="btn btn-info" onclick="restoreBackup()">Restore from Backup</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="setting-card">
+                    <h3>🗑️ Data Cleanup</h3>
+                    <div class="setting-form">
+                        <div class="cleanup-settings">
+                            <div class="form-group">
+                                <label for="cleanupOldRecords">Clean up records older than (days):</label>
+                                <input type="number" id="cleanupOldRecords" min="30" max="3650" value="365">
+                            </div>
+                            <div class="cleanup-actions">
+                                <button class="btn btn-warning" onclick="cleanupOldData()">Clean Old Data</button>
+                                <button class="btn btn-danger" onclick="resetSystem()">Reset System</button>
+                            </div>
+                            <div class="warning-text">
+                                ⚠️ Warning: These actions cannot be undone!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Settings -->
+        <section class="advanced-settings">
+            <h2>Advanced Settings</h2>
+            <div class="settings-grid">
+                <div class="setting-card">
+                    <h3>⚡ Performance</h3>
+                    <div class="setting-form">
+                        <div class="performance-settings">
+                            <div class="form-group">
+                                <label for="cacheSize">Cache Size (MB):</label>
+                                <input type="number" id="cacheSize" min="10" max="1000" value="100">
+                            </div>
+                            <div class="form-group">
+                                <label for="maxSearchResults">Max Search Results:</label>
+                                <input type="number" id="maxSearchResults" min="10" max="1000" value="100">
+                            </div>
+                            <div class="performance-item">
+                                <label>
+                                    <input type="checkbox" id="enableLazyLoading" checked>
+                                    Enable Lazy Loading
+                                </label>
+                            </div>
+                            <div class="performance-item">
+                                <label>
+                                    <input type="checkbox" id="enableCompression" checked>
+                                    Enable Data Compression
+                                </label>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" onclick="savePerformanceSettings()">Save Performance Settings</button>
+                    </div>
+                </div>
+
+                <div class="setting-card">
+                    <h3>🔧 Developer Options</h3>
+                    <div class="setting-form">
+                        <div class="developer-settings">
+                            <div class="developer-item">
+                                <label>
+                                    <input type="checkbox" id="enableDebugMode">
+                                    Enable Debug Mode
+                                </label>
+                            </div>
+                            <div class="developer-item">
+                                <label>
+                                    <input type="checkbox" id="enableConsoleLogs">
+                                    Enable Console Logs
+                                </label>
+                            </div>
+                            <div class="developer-item">
+                                <label>
+                                    <input type="checkbox" id="enablePerformanceMonitoring">
+                                    Enable Performance Monitoring
+                                </label>
+                            </div>
+                            <div class="developer-actions">
+                                <button class="btn btn-secondary" onclick="exportSystemLogs()">Export System Logs</button>
+                                <button class="btn btn-info" onclick="testSystem()">Test System</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Import/Export Settings -->
+        <section class="import-export-settings">
+            <h2>Import/Export Settings</h2>
+            <div class="settings-grid">
+                <div class="setting-card">
+                    <h3>📤 Export Configuration</h3>
+                    <div class="setting-form">
+                        <div class="export-settings">
+                            <div class="form-group">
+                                <label for="exportFormat">Default Export Format:</label>
+                                <select id="exportFormat">
+                                    <option value="json">JSON</option>
+                                    <option value="csv">CSV</option>
+                                    <option value="xlsx">Excel (XLSX)</option>
+                                    <option value="pdf">PDF</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exportEncoding">Export Encoding:</label>
+                                <select id="exportEncoding">
+                                    <option value="utf8">UTF-8</option>
+                                    <option value="ascii">ASCII</option>
+                                    <option value="iso8859">ISO-8859-1</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" onclick="saveExportSettings()">Save Export Settings</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="setting-card">
+                    <h3>📥 Import Configuration</h3>
+                    <div class="setting-form">
+                        <div class="import-settings">
+                            <div class="form-group">
+                                <label for="importValidation">Import Validation:</label>
+                                <select id="importValidation">
+                                    <option value="strict">Strict</option>
+                                    <option value="moderate">Moderate</option>
+                                    <option value="lenient">Lenient</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="duplicateHandling">Duplicate Handling:</label>
+                                <select id="duplicateHandling">
+                                    <option value="skip">Skip Duplicates</option>
+                                    <option value="overwrite">Overwrite</option>
+                                    <option value="merge">Merge</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" onclick="saveImportSettings()">Save Import Settings</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Navigation Footer -->
+    <footer class="navigation-footer">
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">🏠 Main CRM</a>
+            <a href="reports.html" class="nav-link">📊 Reports</a>
+            <a href="settings.html" class="nav-link active">⚙️ Settings</a>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html>

@@ -451,7 +451,7 @@ function downloadReport(data, filename) {
     
     const link = document.createElement('a');
     link.href = URL.createObjectURL(dataBlob);
-    link.download = `${filename}_${new Date().toISOString().split('T')[0]}.json`;
+    link.download = `${filename}_${new Date().toISOString().split('T')[0]}.pdf`;
     link.click();
 }
 
@@ -516,3 +516,4 @@ window.exportAllData = exportAllData;
 window.exportCustomersOnly = exportCustomersOnly;
 window.exportSalesData = exportSalesData;
 window.exportFinancialData = exportFinancialData;
+

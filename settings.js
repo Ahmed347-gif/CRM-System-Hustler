@@ -177,7 +177,7 @@ function loadSettings() {
     
     // Load export/import settings
     if (settings.export) {
-        document.getElementById('exportFormat').value = settings.export.format || 'json';
+        document.getElementById('exportFormat').value = settings.export.format || 'pdf';
         document.getElementById('exportEncoding').value = settings.export.encoding || 'utf8';
     }
     
@@ -654,3 +654,4 @@ window.cleanupOldData = cleanupOldData;
 window.resetSystem = resetSystem;
 window.exportSystemLogs = exportSystemLogs;
 window.testSystem = testSystem;
+

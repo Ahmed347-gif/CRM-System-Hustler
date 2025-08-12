@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Reports & Analytics - Customer & Sales Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reports.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📊 CRM Reports & Analytics</h1>
+            <p>Comprehensive Business Intelligence Dashboard</p>
+        </header>
+
+        <!-- Quick Stats Overview -->
+        <section class="quick-stats">
+            <h2>Quick Statistics Overview</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Revenue</h3>
+                    <p id="totalRevenue">$0.00</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Profit Margin</h3>
+                    <p id="profitMargin">0%</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Avg. Customer Value</h3>
+                    <p id="avgCustomerValue">$0.00</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Growth Rate</h3>
+                    <p id="growthRate">0%</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Analytics -->
+        <section class="customer-analytics">
+            <h2>Customer Analytics</h2>
+            <div class="analytics-grid">
+                <div class="chart-container">
+                    <h3>Customer Categories Distribution</h3>
+                    <div class="chart" id="categoryChart">
+                        <div class="chart-placeholder">Loading chart...</div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3>Customer Growth Over Time</h3>
+                    <div class="chart" id="growthChart">
+                        <div class="chart-placeholder">Loading chart...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sales Analytics -->
+        <section class="sales-analytics">
+            <h2>Sales Analytics</h2>
+            <div class="analytics-grid">
+                <div class="chart-container">
+                    <h3>Monthly Sales Trend</h3>
+                    <div class="chart" id="salesChart">
+                        <div class="chart-placeholder">Loading chart...</div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3>Product Performance</h3>
+                    <div class="chart" id="productChart">
+                        <div class="chart-placeholder">Loading chart...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Reports -->
+        <section class="detailed-reports">
+            <h2>Detailed Reports</h2>
+            <div class="reports-grid">
+                <div class="report-card">
+                    <h3>📈 Customer Performance Report</h3>
+                    <div class="report-content">
+                        <table id="customerPerformanceTable">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Count</th>
+                                    <th>Revenue</th>
+                                    <th>Avg. Value</th>
+                                </tr>
+                            </thead>
+                            <tbody id="customerPerformanceBody">
+                                <!-- Data will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <button class="btn btn-primary" onclick="exportCustomerReport()">Export Report</button>
+                </div>
+
+                <div class="report-card">
+                    <h3>💰 Financial Summary Report</h3>
+                    <div class="report-content">
+                        <div class="financial-summary">
+                            <div class="financial-item">
+                                <span>Total Capital:</span>
+                                <span id="reportTotalCapital">$0.00</span>
+                            </div>
+                            <div class="financial-item">
+                                <span>Total Revenue:</span>
+                                <span id="reportTotalRevenue">$0.00</span>
+                            </div>
+                            <div class="financial-item">
+                                <span>Total Profit:</span>
+                                <span id="reportTotalProfit">$0.00</span>
+                            </div>
+                            <div class="financial-item">
+                                <span>ROI:</span>
+                                <span id="reportROI">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="exportFinancialReport()">Export Report</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Export Options -->
+        <section class="export-options">
+            <h2>Data Export & Reports</h2>
+            <div class="export-grid">
+                <div class="export-card">
+                    <h3>📊 Generate Custom Reports</h3>
+                    <div class="export-form">
+                        <div class="form-group">
+                            <label for="reportType">Report Type:</label>
+                            <select id="reportType">
+                                <option value="customer">Customer Report</option>
+                                <option value="sales">Sales Report</option>
+                                <option value="financial">Financial Report</option>
+                                <option value="comprehensive">Comprehensive Report</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateRange">Date Range:</label>
+                            <select id="dateRange">
+                                <option value="all">All Time</option>
+                                <option value="month">This Month</option>
+                                <option value="quarter">This Quarter</option>
+                                <option value="year">This Year</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-success" onclick="generateCustomReport()">Generate Report</button>
+                    </div>
+                </div>
+
+                <div class="export-card">
+                    <h3>📁 Bulk Export Options</h3>
+                    <div class="export-buttons">
+                        <button class="btn btn-info" onclick="exportAllData()">Export All Data</button>
+                        <button class="btn btn-success" onclick="exportCustomersOnly()">Export Customers</button>
+                        <button class="btn btn-primary" onclick="exportSalesData()">Export Sales Data</button>
+                        <button class="btn btn-warning" onclick="exportFinancialData()">Export Financial Data</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Information -->
+        <section class="system-info">
+            <h2>System Information</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📅 Data Summary</h3>
+                    <div class="info-content">
+                        <p><strong>Last Updated:</strong> <span id="lastUpdated">-</span></p>
+                        <p><strong>Total Records:</strong> <span id="totalRecords">0</span></p>
+                        <p><strong>Data Size:</strong> <span id="dataSize">0 KB</span></p>
+                        <p><strong>System Version:</strong> <span id="systemVersion">1.0.0</span></p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>🔧 System Health</h3>
+                    <div class="info-content">
+                        <p><strong>Status:</strong> <span class="status-good">✅ Healthy</span></p>
+                        <p><strong>Performance:</strong> <span id="performance">Excellent</span></p>
+                        <p><strong>Last Backup:</strong> <span id="lastBackup">-</span></p>
+                        <p><strong>Storage Used:</strong> <span id="storageUsed">0%</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Navigation Footer -->
+    <footer class="navigation-footer">
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">🏠 Main CRM</a>
+            <a href="reports.html" class="nav-link active">📊 Reports</a>
+            <a href="settings.html" class="nav-link">⚙️ Settings</a>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="reports.js"></script>
+</body>
+</html>
